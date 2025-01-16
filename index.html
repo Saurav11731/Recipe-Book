@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Book</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1>Recipe Book</h1>
+    <input type="text" id="search-bar" placeholder="Search by title or ingredients..." oninput="filterRecipes()">
+    <button class="add-recipe-btn" onclick="toggleRecipeForm()">+ Add New Recipe</button>
+  </header>
+
+  <!-- Category Filter -->
+  <div class="categories">
+    <button onclick="filterByCategory('All')">All</button>
+    <button onclick="filterByCategory('Breakfast')">Breakfast</button>
+    <button onclick="filterByCategory('Lunch')">Lunch</button>
+    <button onclick="filterByCategory('Dessert')">Dessert</button>
+  </div>
+
+  <!-- Recipe List -->
+  <section id="recipe-list" class="recipes">
+    <!-- Recipes will be dynamically added here using JavaScript -->
+  </section>
+
+  <!-- Recipe Details Modal -->
+  <div id="recipe-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="recipe-title">Recipe Title</h2>
+      <img id="recipe-image" src="" alt="Recipe Image">
+      <p id="recipe-description"></p>
+      <h3>Ingredients:</h3>
+      <ul id="recipe-ingredients"></ul>
+      <h3>Instructions:</h3>
+      <p id="recipe-instructions"></p>
+      <p id="recipe-time"></p>
+    </div>
+  </div>
+
+   
+  
+    <!-- Add Recipe Form -->
+    <div id="add-recipe-form" class="add-recipe-form" style="display: none;">
+      <h2>Add New Recipe</h2>
+      <form id="new-recipe-form" onsubmit="addNewRecipe(event)">
+        <label for="recipe-title">Title:</label>
+        <input type="text" id="new-recipe-title" placeholder="Recipe Title" required>
+        
+        <label for="recipe-category">Category:</label>
+        <select id="new-recipe-category" required>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dessert">Dessert</option>
+        </select>
+        
+        <label for="recipe-image">Image URL:</label>
+        <input type="url" id="new-recipe-image" placeholder="Image URL" required>
+        
+        <label for="recipe-description">Short Description:</label>
+        <textarea id="new-recipe-description" placeholder="Short description" required></textarea>
+        
+        <label for="recipe-ingredients">Ingredients (comma-separated):</label>
+        <input type="text" id="new-recipe-ingredients" placeholder="e.g., Flour, Eggs, Sugar" required>
+        
+        <label for="recipe-instructions">Instructions:</label>
+        <textarea id="new-recipe-instructions" placeholder="Detailed instructions" required></textarea>
+        
+        <label for="recipe-time">Cooking Time:</label>
+        <input type="text" id="new-recipe-time" placeholder="e.g., Cooking Time: 30 mins" required>
+        
+        <button type="submit">Add Recipe</button>
+        <button type="button" onclick="toggleRecipeForm()">Cancel</button>
+      </form>
+    </div>
+  
+    <!-- Recipe List -->
+    <section id="recipe-list" class="recipes">
+      <!-- Recipes will be dynamically added here using JavaScript -->
+    </section>
+  
+    <!-- Recipe Details Modal -->
+    <div id="recipe-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="recipe-title">Recipe Title</h2>
+        <img id="recipe-image" src="" alt="Recipe Image">
+        <p id="recipe-description"></p>
+        <h3>Ingredients:</h3>
+        <ul id="recipe-ingredients"></ul>
+        <h3>Instructions:</h3>
+        <p id="recipe-instructions"></p>
+        <p id="recipe-time"></p>
+      </div>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
